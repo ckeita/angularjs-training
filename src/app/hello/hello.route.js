@@ -1,14 +1,15 @@
 (function() {
     'use strict';
     angular
-        .module('app')
+        .module('app.hello')
         .config(routesConfig);
 
     function routesConfig($stateProvider) {
         $stateProvider
-            .state('app', {
-                url: '/',
-                component: 'hello'
+            .state('hello', {
+                url: '/hello',
+                component: 'cdbHello'
+                css:
             });
     }
 })();

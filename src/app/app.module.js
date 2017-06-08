@@ -3,7 +3,7 @@
     angular.module('app', [
         'ngAnimate',
         'ui.router',
-        'blocks'
+        'blocks','app.hello'
     ]);
 
 })();
