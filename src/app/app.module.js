@@ -3,7 +3,10 @@
     angular.module('app', [
         'ngAnimate',
         'ui.router',
-        'blocks','app.hello'
+        'blocks',
+        'ui.bootstrap',
+        'app.hello',
+        'app.dashboard'
     ]);
 
 })();

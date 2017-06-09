@@ -16,6 +16,5 @@ let assert;
             // NOOP
         };
     }
-
     Object.freeze(assert);
 })();

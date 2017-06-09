@@ -1,15 +1,15 @@
 (function() {
     'use strict';
     angular
-        .module('app.hello')
+        .module('app')
         .config(routesConfig);
 
     /* @ngInject */
     function routesConfig($stateProvider) {
         $stateProvider
-            .state('hello', {
-                url: '/hello',
-                component: 'cdbHello'
+            .state('404', {
+                url: '/404',
+                templateUrl: '404.html'
             });
     }
 })();

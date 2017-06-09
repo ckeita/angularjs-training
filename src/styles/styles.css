@@ -1,5 +1,5 @@
 body {
-    background-color: red;
+    background-color: whitesmoke;
     overflow: hidden;
     font-family: 'Open Sans', sans-serif;
 
@@ -11,6 +11,11 @@ body {
 ui-view {
     display: block;
     height: 100%;
+}
+
+#appHelloH1 {
+    color: red;
+    font: 12px tahoma;
 }
 
 a, *[ng-click], *[ui-sref] {
