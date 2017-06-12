@@ -5,8 +5,10 @@
         'ui.router',
         'blocks',
         'ui.bootstrap',
+        'bw.paging',
         'app.hello',
-        'app.dashboard'
+        'app.dashboard',
+        'app.pagination'
     ]);
 
 })();

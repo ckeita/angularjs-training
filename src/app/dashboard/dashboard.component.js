@@ -14,17 +14,32 @@
         vm.hello = 'Hello World!';
         vm.$onInit = $onInit;
 
+        vm.current = 1;
+        vm.limit = 10;
+
         vm.computers = [];
-        dataFactory.getComputers().then((response) => {
-            vm.computers = response.data;
-            console.log(vm.computers)
-        }, (response) => {
-            vm.computers = response.status;
-            console.log(vm.computers)
-        });
+
+        function update() {
+            dataFactory.getComputersByPage(vm.current, vm.limit).then((response) => {
+                vm.computers = response;
+            }, (response) => {
+                vm.computers = response;
+            });
+        }
 
         function $onInit() {
             $log.debug('HelloController init');
+            update();
         }
+
+        vm.setPage = function(new_page) {
+            vm.current = new_page;
+            update();
+        };
+
+        vm.setLimit = function(new_limit) {
+            vm.limit = new_limit;
+            update();
+        };
     }
 })();

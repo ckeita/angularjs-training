@@ -9,6 +9,6 @@ let env = {
     toasterLevel: 'D', // possible values : D(ebug) > I(nfo) > W(arn) > E(rror) > N(one)
     flavor: 'default',
     api: {
-        URL: 'http://localhost:8080/api'
+        URL: 'http://localhost:8080/computer-database/api/computers'
     }
 };

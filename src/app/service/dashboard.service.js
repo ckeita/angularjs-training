@@ -1,13 +1,26 @@
 (function() {
     'use strict';
     angular.module('app.dashboard')
-        .factory('dataFactory', /* @ngInject */ function ($http) {
+        .factory('dataFactory', /* @ngInject */ function ($http, $log) {
 
-            var urlBase = 'http://localhost:8080/computer-database/api/computers';
+            var urlBase = env.api.URL;
             var dataFactory = {};
 
             dataFactory.getComputers = function () {
-                return $http.get(urlBase);
+                return $http.get(urlBase).then((response) => {
+                    return response.data;
+                }, (response) => {
+                    return response.status;
+                });
+            };
+
+            dataFactory.getComputersByPage = function (current, limit) {
+                return $http.get(urlBase + '?current=' + current + '&limit=' + limit).then((response) => {
+                    $log.info(limit);
+                    return response.data;
+                }, (response) => {
+                    return response.status;
+                });
             };
 
             /*this.getCustomer = function (id) {

@@ -91,6 +91,7 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
+    "angular-paging": "^2.2.2",
     "angular-ui-bootstrap": "^2.5.0"
   }
 }

@@ -45,7 +45,6 @@
             <tr >
                 <!-- Variable declarations for passing labels as parameters -->
                 <!-- Table header for Computer Name -->
-
                 <th class="editMode" style="width: 60px; height: 22px;">
                     <input type="checkbox" id="selectall" />
                     <span style="vertical-align: top;">
@@ -74,9 +73,12 @@
             <!-- Browse attribute computers -->
             <tbody id="results">
                 <tr ng-repeat="computer in $ctrl.computers">
-                    <td style="display: none;" class="editMode"><input type="checkbox" name="cb"
-                                                                       class="cb" value="${computer.id}"></td>
-                    <td><a href="editcomputer?id={{computer.id}}" onclick="">{{computer.name}}</a></td>
+                    <td class="editMode">
+                        <input type="checkbox" name="cb" class="cb" value="${computer.id}"/>
+                    </td>
+                    <td>
+                        <a href="editcomputer?id={{computer.id}}" onclick="">{{computer.name}}</a>
+                    </td>
                     <td>
                         {{computer.introduced}}
                     </td>
@@ -87,7 +89,7 @@
                         {{computer.companyDTO.name}}
                     </td>
                 </tr>
-                <input type="hidden" name="id" value="{{computer.id}}" />
+                <!--<input type="hidden" name="id" value="{{computer.id}}" />-->
             </tbody>
         </table>
     </div>
@@ -96,27 +98,11 @@
 
 <footer class="navbar-fixed-bottom">
     <div class="container text-center">
-        <ul class="pagination">
-            <li>
-                <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li>
-                <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
-
         <div class="btn-group btn-group-sm pull-right" role="group" >
             <button type="button" class="btn btn-default">10</button>
             <button type="button" class="btn btn-default">50</button>
             <button type="button" class="btn btn-default">100</button>
         </div>
+        <cdb-pagination events="{setPage: $ctrl.setPage}" current="{{$ctrl.current}}" limit="{{$ctrl.limit}}" total="100"></cdb-pagination>
+    </div>
 </footer>
