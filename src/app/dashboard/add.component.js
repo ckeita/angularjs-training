@@ -10,7 +10,7 @@
     function AddController($log, dataFactory) {
         // jshint validthis: true
         const vm = this;
-        vm.$onInit = $onInit;
+        //vm.$onInit = $onInit;
 
         vm.companies = [];
 

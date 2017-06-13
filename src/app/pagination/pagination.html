@@ -1,9 +1,9 @@
 <paging
-    page="current"
-    page-size= "limit"
-    total="100"
+    page="$ctrl.current"
+    page-size= "$ctrl.limit"
+    total="$ctrl.total"
     pg-href="dashboard"
-    paging-action="Paginate(current, limit, 100)"
+    paging-action="Paginate($ctrl.current, $ctrl.limit, $ctrl.total)"
     show-prev-next="true"
     show-first-last="true">
 </paging>

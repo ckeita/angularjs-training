@@ -7,26 +7,26 @@
             var dataFactory = {};
 
             dataFactory.getComputers = function () {
-                return $http.get(urlBase + "computers").then((response) => {
+                return $http.get(urlBase + 'computers').then(function (response) {
                     return Computer.build(response.data);
-                }, (response) => {
+                }, function (response) {
                     return response.status;
                 });
             };
 
             dataFactory.getComputersByPage = function (current, limit) {
-                return $http.get(urlBase + "computers" + '?current=' + current + '&limit=' + limit).then((response) => {
-                    $log.info(Computer.build(response.data));
-                    return Computer.build(response.data);
-                }, (response) => {
+                return $http.get(urlBase + 'computers' + '?current=' + current + '&limit=' + limit);
+                 /*   .then(function (response) {
+                    return Computer.build(response.data.computers);
+                }, function (response) {
                     return response.status;
-                });
+                });*/
             };
 
             dataFactory.getCompanies = function () {
-                return $http.get(urlBase + "companies").then((response) => {
+                return $http.get(urlBase + 'companies').then(function (response) {
                     return response.data;
-                }, (response) => {
+                }, function (response) {
                     return response.status;
                 });
             };

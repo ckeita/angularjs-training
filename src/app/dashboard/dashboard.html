@@ -3,9 +3,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <!-- Bootstrap -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!--<link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="../css/font-awesome.css" rel="stylesheet" media="screen">
-    <link href="../css/main.css" rel="stylesheet" media="screen">
+    <link href="../css/main.css" rel="stylesheet" media="screen">-->
 </head>
 <body>
 <header class="navbar navbar-inverse navbar-fixed-top">
@@ -16,7 +16,7 @@
 <section id="main">
     <div class="container">
         <h1 id="homeTitle">
-            121 {{ 'found' | translate }}
+            {{ $ctrl.nbComputers }} {{ 'found' | translate }}
         </h1>
         <div id="actions" class="form-horizontal">
             <div class="pull-left">
@@ -101,7 +101,7 @@
             <button type="button" class="btn btn-default">50</button>
             <button type="button" class="btn btn-default">100</button>
         </div>
-        <cdb-pagination events="{setPage: $ctrl.setPage}" current="{{$ctrl.current}}" total="100"></cdb-pagination>
+        <cdb-pagination events="{setPage: $ctrl.setPage}" current="{{$ctrl.current}}" limit="{{$ctrl.limit}}" total="{{$ctrl.nbPages}}"></cdb-pagination>
         <div class="btn-group btn-group-sm pull-left" role="group" >
             <button type="button" class="btn btn-default" ng-click="$ctrl.changeLang('fr')" >FR</button>
             <button type="button" class="btn btn-default" ng-click="$ctrl.changeLang('en')" >EN</button>

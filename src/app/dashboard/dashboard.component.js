@@ -7,8 +7,8 @@
         });
 
     /* @ngInject */
-    function DashboardController($log, $translate, dataFactory, $state) {
-        // jshint validthis: true
+    function DashboardController($log, $translate, dataFactory, $state, Computer) {
+        //jshint validthis: true
         const vm = this;
         vm.hello = 'Hello World!';
         vm.$onInit = $onInit;
@@ -17,19 +17,30 @@
         vm.limit = 10;
 
         vm.computers = [];
-
         function update() {
-            dataFactory.getComputersByPage(vm.current, vm.limit).then((response) => {
+            /*dataFactory.getComputersByPage(vm.current, vm.limit).then(function (response) {
                 vm.computers = response;
-            }, (response) => {
+            }, function (response) {
                 $log.debug(response.status);
+            });*/
+            dataFactory.getComputersByPage(vm.current, vm.limit).then(function (response) {
+                vm.computers = Computer.build(response.data.computers);
+                vm.nbComputers = response.data.nbComputers;
+                vm.nbLinks = response.data.nbLinks;
+                vm.nbPages = response.data.nbPages;
+                $log.info(vm.computers);
+                $log.info(vm.nbComputers);
+                $log.info(vm.nbLinks);
+                $log.info(vm.nbPages);
+            }, function (response) {
+                return response.status;
             });
         }
 
         function $onInit() {
             update();
         }
-        
+
         vm.changeLang = function (lang) {
             $translate.use(lang);
         };
@@ -44,8 +55,13 @@
             update();
         };
 
-        vm.goToAdd = function () {
-            $state.go("addComputer");
-        }
+        vm.setTotal = function(newTotal) {
+            vm.total = newTotal;
+            update();
+        };
+
+        vm.goToAdd = function() {
+            $state.go('addComputer');
+        };
     }
 })();

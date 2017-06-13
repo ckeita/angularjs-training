@@ -1,6 +1,5 @@
 (function () {
     'use strict';
-
     angular.module('app.pagination')
         .component('cdbPagination', {
             templateUrl: 'src/app/pagination/pagination.html',
@@ -17,13 +16,13 @@
     function PaginationController($scope, $log) {
         // jshint validthis: true
         const vm = this;
-        vm.hello = 'Hello World!';
 
         $scope.Paginate = function (curpage, pagelimit, total) {
             vm.events.setPage.call(null, curpage);
-            //vm.events.setLimit.call(null, pagelimit);
-            //$log.info(total);
-            $log(pagelimit, total);
+            vm.events.setLimit.call(null, pagelimit);
+            vm.events.setTotal.call(null, total);
+            $log.info(total);
+            $log.info(pagelimit);
         };
     }
 })();
