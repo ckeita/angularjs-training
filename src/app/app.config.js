@@ -3,7 +3,20 @@
     angular.module('app')
         .config(configureRoutes)
         .config(toastrConfig)
-        .config(configure);
+        .config(configure)
+        .config(configureLang);
+
+    /* @ngInject */
+    function configureLang($translateProvider) {
+        $translateProvider.useStaticFilesLoader({
+            files: [{
+                prefix: 'src/resources/i18n/',
+                suffix: '.json'
+            }]
+        });
+        $translateProvider.preferredLanguage('fr')
+            .useSanitizeValueStrategy('escape');
+    }
 
     /* @ngInject */
     function configureRoutes($urlRouterProvider, $locationProvider) {

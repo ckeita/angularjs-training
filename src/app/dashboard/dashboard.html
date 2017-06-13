@@ -1,5 +1,5 @@
 <head>
-    <title>Computer Database</title>
+    <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <!-- Bootstrap -->
@@ -13,24 +13,22 @@
         <a class="navbar-brand" href="dashboard.html"> Application - Computer Database </a>
     </div>
 </header>
-
 <section id="main">
     <div class="container">
         <h1 id="homeTitle">
-            121 Computers found
+            121 {{ 'found' | translate }}
         </h1>
         <div id="actions" class="form-horizontal">
             <div class="pull-left">
                 <form id="searchForm" action="#" method="GET" class="form-inline">
-
-                    <input type="search" id="searchbox" name="search" class="form-control" placeholder="Search name" />
-                    <input type="submit" id="searchsubmit" value="Filter by name"
+                    <input type="search" id="searchbox" name="search" class="form-control" placeholder="{{ 'holderSearch' | translate }}" />
+                    <input type="submit" id="searchsubmit" value="{{ 'btnSearch' | translate }}"
                            class="btn btn-primary" />
                 </form>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" id="addComputer" href="addComputer.html">Add Computer</a>
-                <a class="btn btn-default" id="editComputer" href="#" onclick="$.fn.toggleEditMode();">Edit</a>
+                <a class="btn btn-success" id="addComputer" ng-click="$ctrl.goToAdd()">{{ 'addTitle' | translate }}</a>
+                <a class="btn btn-default" id="editComputer" href="#" onclick="$.fn.toggleEditMode();">{{ 'editSubmit' | translate }}</a>
             </div>
         </div>
     </div>
@@ -54,18 +52,18 @@
                             </span>
                 </th>
                 <th>
-                    Computer name
+                    {{ 'name' | translate }}
                 </th>
                 <th>
-                    Introduced date
+                    {{ 'introduced' | translate }}
                 </th>
                 <!-- Table header for Discontinued Date -->
                 <th>
-                    Discontinued date
+                    {{ 'discontinued' | translate }}
                 </th>
                 <!-- Table header for Company -->
                 <th>
-                    Company
+                    {{ 'company' | translate }}
                 </th>
 
             </tr>
@@ -103,6 +101,10 @@
             <button type="button" class="btn btn-default">50</button>
             <button type="button" class="btn btn-default">100</button>
         </div>
-        <cdb-pagination events="{setPage: $ctrl.setPage}" current="{{$ctrl.current}}" limit="{{$ctrl.limit}}" total="100"></cdb-pagination>
+        <cdb-pagination events="{setPage: $ctrl.setPage}" current="{{$ctrl.current}}" total="100"></cdb-pagination>
+        <div class="btn-group btn-group-sm pull-left" role="group" >
+            <button type="button" class="btn btn-default" ng-click="$ctrl.changeLang('fr')" >FR</button>
+            <button type="button" class="btn btn-default" ng-click="$ctrl.changeLang('en')" >EN</button>
+        </div>
     </div>
 </footer>

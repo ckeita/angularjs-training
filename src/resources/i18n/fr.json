@@ -1,4 +1,5 @@
 {
+    "btn_lang_fr": "FR",
     "title": "Computer-database",
     "btn.next": "Suivant",
     "btn.back": "Précedent",
@@ -10,5 +11,17 @@
     "lbl.save": "sauvegarder",
     "err.field-required": "ce champ est requis",
     "err.field-date-required": "une date est requise",
-    "err.field-number-required": "un nombre est requis"
+    "err.field-number-required": "un nombre est requis",
+    "addTitle": "Ajout d'ordinateur",
+    "editTitle": "Modification d'ordinateur",
+    "name": "Nom de l'ordinateur",
+    "introduced": "Date d'introduction",
+    "discontinued": "Date de fin de distribution",
+    "company": "Nom de la companie",
+    "addSubmit": "Ajouter",
+    "editSubmit": "Modifier",
+    "cancel": "Annuler",
+    "btnSearch": "Filtrer par nom",
+    "holderSearch": "Recherche nom",
+    "found": "Ordinateur(s) Trouvé(s)"
 }

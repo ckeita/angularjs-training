@@ -1,6 +1,5 @@
 (function () {
     'use strict';
-
     angular.module('app.dashboard')
         .component('cdbDashboard', {
             templateUrl: 'src/app/dashboard/dashboard.html',
@@ -8,7 +7,7 @@
         });
 
     /* @ngInject */
-    function DashboardController($log, dataFactory) {
+    function DashboardController($log, $translate, dataFactory, $state) {
         // jshint validthis: true
         const vm = this;
         vm.hello = 'Hello World!';
@@ -23,23 +22,30 @@
             dataFactory.getComputersByPage(vm.current, vm.limit).then((response) => {
                 vm.computers = response;
             }, (response) => {
-                vm.computers = response;
+                $log.debug(response.status);
             });
         }
 
         function $onInit() {
-            $log.debug('HelloController init');
             update();
         }
+        
+        vm.changeLang = function (lang) {
+            $translate.use(lang);
+        };
 
-        vm.setPage = function(new_page) {
-            vm.current = new_page;
+        vm.setPage = function(newPage) {
+            vm.current = newPage;
             update();
         };
 
-        vm.setLimit = function(new_limit) {
-            vm.limit = new_limit;
+        vm.setLimit = function(newLimit) {
+            vm.limit = newLimit;
             update();
         };
+
+        vm.goToAdd = function () {
+            $state.go("addComputer");
+        }
     }
 })();

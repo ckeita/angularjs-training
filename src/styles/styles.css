@@ -1,7 +1,10 @@
 body {
-    background-color: whitesmoke;
     overflow: hidden;
     font-family: 'Open Sans', sans-serif;
+
+    background: #f2f2f2;
+    padding-top: 70px;
+    padding-bottom: 70px;
 
     position: absolute;
     height: 100%;
@@ -28,4 +31,28 @@ a, *[ng-click], *[ui-sref] {
 
 a {
     cursor: pointer;
+}
+
+footer {
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background:#FEFEFE;
+    border-top:1px solid #CCC;
+    height:60px;
+}
+
+footer .pagination {
+    margin:10px 0px;
+}
+
+footer .btn-group {
+    margin:10px 10px;
+}
+
+input[type='checkbox'] {
+    margin: 0px;
+    padding:0px;
+    border-radius: 5px;
+    white-space: nowrap;
 }

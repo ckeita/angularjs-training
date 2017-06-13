@@ -8,8 +8,12 @@
     function routesConfig($stateProvider) {
         $stateProvider
             .state('dashboard', {
-                url: '/{dashboard}',
+                url: '/dashboard',
                 component: 'cdbDashboard'
+            })
+            .state('addComputer', {
+                url: '/addComputer',
+                component: 'cdbAdd'
             });
     }
 })();

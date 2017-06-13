@@ -4,6 +4,7 @@
         'ngAnimate',
         'ui.router',
         'blocks',
+        'pascalprecht.translate',
         'ui.bootstrap',
         'bw.paging',
         'app.hello',

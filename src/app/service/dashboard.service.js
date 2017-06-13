@@ -1,22 +1,30 @@
 (function() {
     'use strict';
     angular.module('app.dashboard')
-        .factory('dataFactory', /* @ngInject */ function ($http, $log) {
+        .factory('dataFactory', /* @ngInject */ function ($http, $log, Computer) {
 
             var urlBase = env.api.URL;
             var dataFactory = {};
 
             dataFactory.getComputers = function () {
-                return $http.get(urlBase).then((response) => {
-                    return response.data;
+                return $http.get(urlBase + "computers").then((response) => {
+                    return Computer.build(response.data);
                 }, (response) => {
                     return response.status;
                 });
             };
 
             dataFactory.getComputersByPage = function (current, limit) {
-                return $http.get(urlBase + '?current=' + current + '&limit=' + limit).then((response) => {
-                    $log.info(limit);
+                return $http.get(urlBase + "computers" + '?current=' + current + '&limit=' + limit).then((response) => {
+                    $log.info(Computer.build(response.data));
+                    return Computer.build(response.data);
+                }, (response) => {
+                    return response.status;
+                });
+            };
+
+            dataFactory.getCompanies = function () {
+                return $http.get(urlBase + "companies").then((response) => {
                     return response.data;
                 }, (response) => {
                     return response.status;

@@ -13,6 +13,7 @@
     "bower": "bower"
   },
   "devDependencies": {
+    "angular-translate": "^2.15.1",
     "babel-plugin-angularjs-annotate": "^0.7.0",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-es2017": "^6.16.0",
