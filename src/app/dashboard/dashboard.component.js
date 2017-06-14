@@ -17,13 +17,10 @@
         vm.limit = 10;
 
         vm.computers = [];
+        vm.companies = [];
+
         function update() {
-            /*dataFactory.getComputersByPage(vm.current, vm.limit).then(function (response) {
-                vm.computers = response;
-            }, function (response) {
-                $log.debug(response.status);
-            });*/
-            dataFactory.getComputersByPage(vm.current, vm.limit).then(function (response) {
+            dataFactory.getComputersByPage(vm.current - 1, vm.limit).then(function (response) {
                 vm.computers = Computer.build(response.data.computers);
                 vm.nbComputers = response.data.nbComputers;
                 vm.nbLinks = response.data.nbLinks;
@@ -36,6 +33,13 @@
                 return response.status;
             });
         }
+
+        dataFactory.getCompanies().then(function (response) {
+            vm.companies = response;
+            $log.info(vm.companies);
+        }, function (response) {
+            $log.debug(response.status);
+        });
 
         function $onInit() {
             update();

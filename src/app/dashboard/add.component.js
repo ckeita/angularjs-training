@@ -19,5 +19,11 @@
         }, (response) => {
             $log.debug(response.status);
         });
+
+        vm.addComputer = function(computer) {
+            $log.info(computer);
+            $log.info(dataFactory.insertComputer(computer));
+        }
+
     }
 })();

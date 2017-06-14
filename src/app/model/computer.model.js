@@ -11,7 +11,7 @@
                     this.discontinued = discontinued;
                 }
                 if (companyDTO !== null) {
-                    this.companyName = companyDTO.name;
+                    this.companyDTO = companyDTO;
                 }
             }
             var computersArray = [];

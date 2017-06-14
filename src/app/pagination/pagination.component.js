@@ -17,12 +17,9 @@
         // jshint validthis: true
         const vm = this;
 
-        $scope.Paginate = function (curpage, pagelimit, total) {
+        $scope.Paginate = function (curpage, total) {
             vm.events.setPage.call(null, curpage);
-            vm.events.setLimit.call(null, pagelimit);
             vm.events.setTotal.call(null, total);
-            $log.info(total);
-            $log.info(pagelimit);
         };
     }
 })();

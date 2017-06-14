@@ -16,11 +16,6 @@
 
             dataFactory.getComputersByPage = function (current, limit) {
                 return $http.get(urlBase + 'computers' + '?current=' + current + '&limit=' + limit);
-                 /*   .then(function (response) {
-                    return Computer.build(response.data.computers);
-                }, function (response) {
-                    return response.status;
-                });*/
             };
 
             dataFactory.getCompanies = function () {
@@ -31,13 +26,14 @@
                 });
             };
 
-            /*this.getCustomer = function (id) {
-                return $http.get(urlBase + '/' + id);
+            dataFactory.insertComputer = function (computer) {
+                debugger;
+                return $http.post(urlBase + 'computers', computer);
             };
 
-            this.insertCustomer = function (cust) {
-                return $http.post(urlBase, cust);
-            };
+            /* this.getCustomer = function (id) {
+             return $http.get(urlBase + '/' + id);
+             };
 
             this.updateCustomer = function (cust) {
                 return $http.put(urlBase + '/' + cust.ID, cust)
